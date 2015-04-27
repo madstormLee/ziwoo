@@ -1,0 +1,8 @@
+.ssh
+.todo
+.subversion
+.lesshst
+.psql_history
+.vimrc.html
+.sass-cache
+*.css.map

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+	<head>
+		<title><?=$config->info->title?> - <?=$config->info->subtitle?></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel='stylesheet' type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/normalize.min.css" media='all' />
+		<link rel='stylesheet' type='text/css' href="~/style.css" media='all' />
+		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/vendor/modernizr.js"></script>
+		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/vendor/jquery.js"></script>
+		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation.min.js"></script>
+		<script type='text/javascript' src="./script.js"></script>
+	</head>
+	<body id='body'>
+		<a class='user login' href='~/user/login'>login</a>
+		<section id="modal" class="reveal-modal" data-reveal></section>
+		<section id='container' class='row'>
+			<header class="sticky">
+
+				<nav class="top-bar" data-topbar role="navigation">
+					<ul class="title-area">
+						<li class="name"><h1><a id='logo' href="~/"><?=$config->info->title?></a></h1></li>
+						<li class="toggle-topbar menu-icon"><a href="~/"><span>menu</span></a></li>
+					</ul>
+					<section class="top-bar-section">
+						<ul class="right">
+							<li class="has-form">
+								<form method='get' class="row collapse" action='~/contents'>
+									<div class="large-8 small-9 columns">
+										<input type="search" id='searchWord' name='searchWord' placeholder="search..." value='<?=$config->router->params->searchWord?>'>
+									</div>
+									<div class="large-4 small-3 columns">
+										<a href="#" class="button expand">Go</a>
+									</div>
+								</form>
+							</li>
+							<!--
+							<li><a href='#comments'>comments</a></li>
+							-->
+							<li class="show-for-small-only"><a target="_blank" href="https://www.google.co.kr/maps/place/466-19+Seogyo-dong,+Mapo-gu,+Seoul/@37.5538748,126.9165178,15z/data=!3m1!4b1!4m2!3m1!1s0x357c98da2a0296a9:0x3fce61ffb9004346?hl=en">Address</a></li>
+							<li class="show-for-small-only"><a href="tel:+8223224195">Phone</a></li>
+							<li class="show-for-small-only"><a href="mailto:info@ziwoo.co.kr">Email</a></li>
+						</ul>
+						<ul class="left">
+							<? if ( isset( $config->session->user ) ) : ?>
+							<li><a class='image toggleId' href='#imageManager'>Image Manager</a></li>
+							<li><a class='user logout' href='~/user/logout'>logout</a></li>
+							<? endif; ?>
+						</ul>
+					</section>
+				</nav>
+			</header>
+
+			<section id='left' class='left medium-2 columns hide-for-small-only'>
+				<nav class="sitemap">
+					<? foreach( $config->contents->getStack('0') as $row ): ?>
+					<a href="~/contents?parentId=<?=$row->id?>"><?=$row->title ?></a>
+					<? endforeach; ?>
+				</nav>
+				<hr />
+				<nav class="contact">
+					<a target="_blank" href="https://www.google.co.kr/maps/place/466-19+Seogyo-dong,+Mapo-gu,+Seoul/@37.5538748,126.9165178,15z/data=!3m1!4b1!4m2!3m1!1s0x357c98da2a0296a9:0x3fce61ffb9004346?hl=en">466-19 Seogyo-dong<br>Mapo-gu, Seoul</a>
+					<a target="_blank" href="tel:+8223224195">+82 02 322 4195</a>
+					<a target="_blank" href="mailto:info@ziwoo.co.kr">Contact us via email</a>
+				</nav>
+				<!--
+				<hr />
+				<nav class="social">
+					<a target="_blank" href="https://twitter.com/ziwoo">@ZIWOO</a>
+					<a target="_blank" href="https://facebook.com/ziwoo">Like ZIWOO</a>
+					<a target="_blank" href="https://www.linkedin.com/company/ziwoo">Connect With Us</a>
+					<a target="_blank" href="https://www.instagram.com/ziwoo">Follow Us</a>
+				</nav>
+				-->
+			</section>
+
+			<main class='left medium-10 columns'>
+				<? if ( isset( $config->session->user ) ) : ?>
+				<section id='imageManager'>
+					<iframe src='~/files'></iframe>
+				</section>
+				<? endif; ?>
+
+				<?=$main?>
+			</main>
+
+			<footer class='columns'>
+				<span>© 2015 ziwoo. All rights reserved.</span>
+				<!--
+				<a href="/info/service" target="_blank">Terms of Service</a>
+				<a href="/info/privacy" target="_blank">Privacy Policy</a>
+				-->
+				<a class='manual' href="/manual" target="_blank">Help</a>	
+			</footer>
+
+		</section>
+	</body>
+</html>

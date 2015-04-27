@@ -1,0 +1,77 @@
+<link rel='stylesheet' href='./style.css' media='all' />
+
+<h1>Tile</h1>
+
+<section class="tile row">
+	<? if ( $get->parentId != 0 ): ?>
+	<a class='up <?=isset($config->session->user)?'admin':''?>' href='?parentId=<?=$model->parentId?>' title='step up'>step up</a>
+	<? endif; ?>
+
+	<? foreach( $index as $row ): ?>
+	<? if ( $row->tie > 0 ) : ?>
+	<? $ties = $row->tie + 1; ?>
+	<div class='tie scale-<?=$row->scale * 2?> large-3 medium-4 small-12'>
+	<? endif; ?>
+
+	<? if( isset( $ties ) && $ties > 0 ): ?>
+	<div class='<?=$row->type?> scale-<?=$row->scale?> medium-12 small-6'>
+	<? else: ?>
+	<div class='<?=$row->type?> scale-<?=$row->scale?> large-<?=$row->scale*3?> medium-<?=$row->scale*4?> small-<?=$row->scale*6?>' style='float:<?=$row->float?>;'>
+	<? endif; ?>
+
+	<!-- images -->
+	<? if ( $row->type == 'stack' ): ?>
+	<img src='~/images/stack.png' class='stack' />
+	<? elseif ( $row->type == 'video' ): ?>
+	<img src='~/images/button_play.png' class='video' />
+	<? endif; ?>
+
+	<? if ( $row->type == 'link' ) : ?>
+	<a href='<?=$row->contents?>' target='_blank'>
+	<? elseif ( $row->type == 'stack' ): ?>
+	<a href='?parentId=<?=$row->id?>'>
+	<? else : ?>
+	<a href='./view?id=<?=$row->id?>' data-reveal-id='modal' data-reveal-ajax='true'>
+	<? endif; ?>
+		<img src='~/<?=$row->image?>' />
+		<dl class='info'>
+			<dt class='title'><?=$row->title?></dt>
+			<? if ( $row->type == 'video' ): ?>
+			<dd><?=$row->title?></dd>
+			<? else: ?>
+			<dd><?=$row->contents?></dd>
+			<? endif; ?>
+			<dt class='date'><?=$row->wDate?></dt>
+		</dl>
+	</a>
+
+	<? if( isset($config->session->user) ): ?>
+	<nav class='buttons'>
+		<a class='float' href='./update?id=<?=$row->id?>&float=<?=($row->float=='left')?'right':'left';?>'><?=($row->float=='left')?'&lt;':'&gt;';?></a>
+		<a class='scale' title='toggle Scale' href='./update?id=<?=$row->id?>&amp;scale=<?=$row->scale==2?1:2;?>'>S</a>
+		<a class='tie<?=$row->tie==1?'d':'';?>' href='./update?id=<?=$row->id?>&amp;tie=<?=$row->tie==1?0:1;?>'>T</a>
+		<a class='contents' title='edit Contents' href='./write?id=<?=$row->id?>' data-reveal-id='modal' data-reveal-ajax='true'>C</a>
+		<a class='delete' data-confirm='remove?' href='./delete?id=<?=$row->id?>'>X</a>
+	</nav>
+	<? endif; ?>
+	</div>
+	<? if ( isset( $ties ) ) --$ties; ?>
+	<? if ( isset( $ties ) && $ties == 0 ) : unset($ties); ?>
+	</div>
+	<? endif; ?>
+	<? endforeach; ?>
+
+	<? if( isset($config->session->user) ): ?>
+		<? if( isset( $ties ) && $ties > 0 ): ?>
+		<div id='write' class='scale-1  medium-12 small-12' data-href='./write?parentId=<?=$get->parentId?>'>
+		<? else: ?>
+		<div id='write' class='scale-1 medium-3 small-6' data-href='./write?parentId=<?=$get->parentId?>'></div>
+		<? endif; ?>
+	<? endif; ?>
+		<? if ( isset( $ties ) ) --$ties; ?>
+		<? if ( isset( $ties ) && $ties == 0 ) : unset($ties); ?>
+	</div>
+	<? endif; ?>
+</section>
+
+<section id='images' class="reveal-modal" data-reveal></section>

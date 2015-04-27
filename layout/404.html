@@ -1,0 +1,19 @@
+<? if( isset( $exception ) ): ?>
+
+<h1>Exception info</h1>
+<article class='pre'><?=$e?></article>
+
+<? else: ?>
+
+<h1>Page Not Found</h1>
+
+<h2>requested : <?=$_SERVER['REQUEST_URI']?></h2>
+
+<article class='view'>
+You request <b><?=$_SERVER['REQUEST_URI']?>.</b>
+But requested location is not served.<br />
+
+You can go <a href='~/'>main page</a>, and looking other links.
+</article>
+
+<? endif; ?>

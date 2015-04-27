@@ -1,0 +1,26 @@
+<a id='logo' href='~/'><?=$sitemap->info->project?></a>
+
+<nav class='menu'>
+	<ul>
+		<? foreach( $config->sitemap as $row ): ?>
+		<li>
+			<a href='~/<?=$row->component?>'><?=$row->component?></a>
+			<? if ( $row->subs ): ?>
+			<nav class='sub'>
+				<? foreach( $row->subs as $action ): ?>
+				<a href='~/<?=$row->id?>/<?=$action->id?>'><?=$action->component?></a>
+				<? endforeach; ?>
+			</nav>
+			<? endif; ?>
+		</li>
+		<? endforeach; ?>
+	</ul>
+</nav>
+
+<nav class='personal'>
+	<? if ( $userLog->isLogin() ): ?>
+	<a href='~/User/logout'>logout</a>
+	<? else: ?>
+	<a href='~/User/login'>login</a>
+	<? endif; ?>
+</nav>

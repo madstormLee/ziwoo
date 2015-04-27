@@ -1,0 +1,123 @@
+{
+	"id": {
+		"id": "id",
+		"name": "id",
+		"label": "id",
+		"type": "integer",
+		"extra": "auto_increment",
+		"key": "primary"
+	},
+	"parentId": {
+		"id": "parentId",
+		"name": "parentId",
+		"label": "parentId",
+		"type": "integer",
+		"default": 0
+	},
+	"orderId": {
+		"id": "orderId",
+		"name": "orderId",
+		"label": "orderId",
+		"type": "integer",
+		"default": 1
+	},
+	"image": {
+		"id": "image",
+		"name": "image",
+		"label": "Image",
+		"default": "~/images/pictures.png",
+		"type": "text"
+	},
+	"type": {
+		"id": "type",
+		"name": "type",
+		"label": "Type",
+		"type": "radio",
+		"default": "stack",
+		"options": {
+			"stack": {
+				"id": "stack",
+				"label": "Stack"
+			},
+			"video": {
+				"id": "video",
+				"label": "Video"
+			},
+			"article": {
+				"id": "article",
+				"label": "Article"
+			},
+			"link": {
+				"id": "link",
+				"label": "Link"
+			}
+		}
+	},
+	"scale": {
+		"id": "scale",
+		"name": "scale",
+		"label": "Scale",
+		"type": "number",
+		"default": 1
+	},
+	"float": {
+		"id": "float",
+		"name": "float",
+		"label": "float",
+		"type": "radio",
+		"options": {
+			"left": {
+				"id": "left",
+				"label": "left"
+			},
+			"right": {
+				"id": "right",
+				"label": "right"
+			}
+		},
+		"default": "left"
+	},
+	"tie": {
+		"id": "tie",
+		"name": "tie",
+		"label": "Tie",
+		"type": "number",
+		"default": 0
+	},
+	"title": {
+		"id": "title",
+		"name": "title",
+		"label": "Title",
+		"type": "text"
+	},
+	"contents": {
+		"id": "contents",
+		"name": "contents",
+		"label": "Contents",
+		"type": "textarea"
+	},
+	"sDate": {
+		"id": "sDate",
+		"name": "sDate",
+		"label": "Start Date",
+		"type": "datetime"
+	},
+	"eDate": {
+		"id": "eDate",
+		"name": "eDate",
+		"label": "End Date",
+		"type": "datetime"
+	},
+	"wDate": {
+		"id": "wDate",
+		"name": "wDate",
+		"label": "Write Date",
+		"type": "datetime"
+	},
+	"uDate": {
+		"id": "uDate",
+		"name": "uDate",
+		"label": "Update Date",
+		"type": "datetime"
+	}
+}

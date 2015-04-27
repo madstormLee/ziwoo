@@ -1,0 +1,83 @@
+@import url(layout/style.css);
+
+header {
+}
+.top-bar .name h1 a {
+	font-size: 1rem;
+	margin: 0;
+}
+header a.image ,
+header a.user.logout {
+}
+a.user.login {
+	position: fixed;
+	color: #fff;
+  left: 0;
+	bottom:0;
+}
+header a.user.login:hover {
+	color: #fff;
+}
+header nav.top a {
+	color: #999;
+	font-weight: bold;
+	font-size: .8rem;
+}
+header nav.top a:hover {
+	color: #666;
+}
+
+#container.row {
+	max-width: 1200px;
+}
+#logo {
+	font-size: 1rem;
+}
+#left {
+	font-size: .7rem;
+	margin-bottom: 10rem;
+}
+#left nav a {
+	color: #666;
+	display: block;
+	margin-top: 1rem;
+}
+#left nav a:hover {
+	color: #999;
+}
+#left nav.sitemap a {
+	font-size: .8rem;
+	font-weight: bold;
+}
+#left nav.social a {
+	margin-top: .3rem;
+}
+
+footer {
+	font-size: .7rem;
+  background: #fff;
+  text-align: right;
+  color: #000;
+}
+footer a.manual {
+	display: none;
+}
+main h1 {
+	display: none;
+}
+
+section#imageManager {
+	position: absolute;
+	display: none;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 700px;
+	background: #fff;
+	z-index: 3000;
+}
+section#imageManager iframe {
+	height: 100%;
+	width: 100%;
+	border: 0;
+}

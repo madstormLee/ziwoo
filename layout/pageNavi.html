@@ -1,0 +1,21 @@
+<ul class='madPageNavi'>
+	<? if ( $this->page != 1 ) : ?>
+	<li><a class='first' href='?<?=$queryString?>&page=1'>처음 페이지</a></li>
+	<? endif; ?>
+	<? if ( ! empty ( $prevPage ) ) : ?>
+	<li><a class='prev' href='?<?=$queryString?>&page=<?=$prevPage?>'>&lt;이전</a></li>
+	<? endif; ?>
+	<? $i=0; foreach( $pageUnits as $page): ?>
+	<? if ( $page == $this->page ) : ?>
+	<li><b><?=$page?></b></li>
+	<? else: ?>
+	<li><a href='?<?=$queryString?>&page=<?=$page?>'><?=$page?></a></li>
+	<? endif; ?>
+	<? ++$i; endforeach; ?>
+	<? if ( ! empty ( $nextPage ) ) : ?>
+	<li><a class='next' href='?<?=$queryString?>&page=<?=$nextPage?>'>다음&gt;</a></li>
+	<? endif; ?>
+	<? if ( $this->page != $lastPage ) : ?>
+	<li><a class='last' href='?<?=$queryString?>&page=<?=$lastPage?>'>마지막 페이지</a></li>
+	<? endif; ?>
+</ul>

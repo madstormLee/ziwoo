@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI}  !(codeMirror) [NC]
+RewriteRule !\.(js|jpg|png|gif|css|swf)$ index.php [NC]

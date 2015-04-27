@@ -1,0 +1,353 @@
+@import "mad/vendors/foundation/scss/foundation.scss";
+
+/**********************************************************
+	Html Tags :
+		yes. this part use html5resetter. html is defaulted.
+		but some point has different taste.
+***********************************************************/
+
+table {
+	width: 100%;
+}
+h1,h2,h3,h4,h5,h6 {
+	position: relative;
+}
+h2 {
+	font: 500 20px sans-serif;
+	color: white;
+	text-indent: 10px;
+	background: #6666ff;
+	margin-top: 20px;
+}
+
+ol, ul {
+	list-style-position: inside;
+}
+
+
+/* layout */
+main {
+	margin-bottom: 1rem;
+}
+main h1 {
+	font-size: 1rem;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	background: #000;
+	text-align: right;
+	color: #fff;
+	z-index: 1000;
+}
+
+section.view {
+	border: 1rem solid #999;
+	border-radius: 1rem;
+	padding: 1rem;
+	dl {
+		@include grid-row();
+		dt , dd {
+			@include grid-column(2);
+			background: #eee;
+		}
+		dt{
+			background: #cff;
+		}
+	}
+}
+
+/********************** table.index **********************/
+table.index {
+	width: 100%;
+	margin-top: 20px;
+	border: 0;
+	border-bottom: 1px solid #b4b4b4;
+	th {
+		padding: 0;
+		text-align: center;
+	}
+	th.ck {
+		width: 31px;
+	}
+	th.num {
+		width: 46px;
+	}
+	th.code {
+		width: 109px;
+	}
+	td {
+		border-top: 1px solid #e0e0e0;
+		text-align: center;
+	}
+	td.title {
+		text-align: left;
+	}
+	td.buttons {
+		@include button-group-container();
+		a {
+			@include button();
+			@include button-size($padding:$button-tny);
+			margin: 0;
+		}
+	}
+}
+
+/************************** table.admin ********************/
+table.admin {
+	width: 100%;
+	border-collapse: collapse;
+	border-top: 2px solid #3c9d2a;
+	border-bottom: 1px solid #b4b4b4;
+
+	tr.first td ,
+	tr.first th {
+		border-top: 1px solid #d3e8cc;
+	}
+	tr th {
+		height: 30px;
+		width: 80px;
+		padding-left: 10px;
+		text-align: left;
+		font-weight: bold;
+		color: #3a8e23;
+		background-color: #f1f1f1;
+	}
+	tr th ,
+	tr td {
+		border-bottom: 1px solid #dddddd;
+	}
+	tr td {
+		padding: 0;
+		padding-left: 20px;
+		text-align: left;
+	}
+}
+/************************** table.view ********************/
+table.view {
+	width: 100%;
+	border-collapse: collapse;
+	border-top: 2px solid #3c9d2a;
+	border-bottom: 1px solid #b4b4b4;
+
+	tr.first td ,
+	tr.first th {
+		border-top: 1px solid #d3e8cc;
+	}
+	tr th {
+		height: 30px;
+		width: 150px;
+		padding-left: 20px;
+		text-align: left;
+		font-weight: bold;
+		color: #3a8e23;
+		background-color: #f1f1f1;
+	}
+	tr th ,
+	tr td {
+		border-bottom: 1px solid #dddddd;
+	}
+	tr td {
+		padding: 0;
+		padding-left: 20px;
+		text-align: left;
+	}
+}
+
+
+/************************** table.images ********************/
+table.images {
+	tr { padding: 5px 0; }
+	td {
+		text-align: left;
+		width: 180px;
+		padding: 10px 0;
+	}
+	td span.bb {
+		margin-left: 12px;
+	}
+	a { margin-top: 24px; }
+	a img {
+		border-width:1px;
+		border-color:#dedede;
+		padding:3px;
+		width: 144px;
+		height: 100px;
+	}
+	a img:hover {
+		border-color: #ff6600;
+	}
+	td dl.info {
+		margin-top: 24px;
+		width: 180px;
+	}
+	td dl.info dt {
+		float: left;
+		width: 90px;
+	}
+	td dl.info dd {
+		float:left;
+		width:90px;
+	}
+	tbody tr:hover {
+		background: #ffffff;
+	}
+}
+
+/************************** nav.component ********************/
+nav.component {
+	@include grid-row();
+	text-align: right;
+	a {
+		@include button();
+		@include button-size($padding:$button-tny);
+		@include button-style($bg:false, $radius:$button-round);
+	}
+	a.current {
+		background: #cfccfc;
+	}
+}
+pre.printR {
+	font-size: 0.75rem;
+}
+/************************** form.write ********************/
+form.write {
+	@include grid-row();
+	.simple {
+		label {
+			@include prefix-postfix-base();
+			@include prefix();
+			@include grid-column(
+			$columns: 4,
+			$float: left
+			);
+		}
+		input {
+			@include grid-column(
+			$columns: 8,
+			$float: right
+			);
+			margin-bottom: 0;
+		}
+	}
+}
+
+
+
+/************************** #right todo: from admin/style.css ********************/
+#index {
+	@include grid-column(
+	$columns: 9,
+	$float: left
+	);
+}
+#right {
+	background: #ffffff;
+	z-index: 1;
+	@include grid-column(
+	$columns: 3,
+	$float: right
+	);
+	dl > dt {
+		margin: 0;
+		padding: 2px 10px;
+		font-size: 12px;
+		background: #eeeeee;
+		border-top: 2px solid #000000;
+		border-bottom: 2px solid #000000;
+		cursor: pointer;
+	}
+	dl:first-child > dt {
+		border-top: 0;
+	}
+	dl > dd.rightMenu {
+		h1 {
+			display: none;
+		}
+
+		ul {
+			list-style: none;
+			li {
+				a {
+					display: block;
+					font-size: 12px;
+					color: #000000;
+					padding: 2px 5px;
+					border-bottom: 1px solid #000000;
+				}
+				a:hover {
+					text-decoration: none;
+					background: #ccccff;
+				}
+			}
+		}
+
+		table.list {
+			th , td {
+				font-size: 12px;
+				border-bottom: 1px solid #000000;
+				vertical-align: middle;
+			}
+			th {
+				padding: 3px;
+				border-top: 1px solid #000000;
+				background: #cccccc;
+			}
+			td {
+				a {
+					color: #000000;
+					font-size: 12px;
+				}
+				img {
+					height: 50px;
+				}
+			}
+		}
+	}
+
+
+	form.simple dl.targetItem dt {
+		background: transparent;
+		padding: 5px;
+	}
+	form.simple dl.targetItem dd {
+		border: 0;
+		border-top: 1px solid #cccccc;
+	}
+}
+
+/***************************** section.summary *****************************/
+section.summary {
+	border-bottom: 1px solid #000000;
+	padding-bottom: 10px;
+	float: left;
+	width: 100%;
+	dl {
+		float: left;
+		border: 1px solid #000000;
+		border-left: 0;
+		display: inline-block;
+		font-size: 12px;
+	}
+	dl.header {
+		border-left: 1px solid #000000;
+	}
+
+	dl dt {
+		background: #cccccc;
+	}
+	dl dt ,
+	dl dd {
+		padding: 3px 20px;
+		border-bottom: 1px solid #000000;
+	}
+	dl dd {
+		text-align: right;
+	}
+}
+p.noContent {
+	padding: 10px;
+	border: 1px solid #000;
+	text-align: center;
+}

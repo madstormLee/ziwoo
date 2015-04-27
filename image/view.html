@@ -1,0 +1,47 @@
+<h1>Image View</h1>
+
+<nav class='component'>
+	<a href='./'>Index</a>
+</nav>
+
+<table class='simple'>
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>title</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Filename</td>
+			<td class='title'><?=$file->getName()?></td>
+		</tr>
+		<tr>
+			<td>Image</td>
+			<td class='title'>
+				<a href='~/<?=$file->getFile()?>'>
+					<img src='~/<?=$file->getFile()?>' />
+				</a>
+				<span>
+					src='~/<?=$file->getFile()?>'
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td>File Permission</td>
+			<td class='title'><?=sprintf('%o', filePerms( $file->getFile() ) );?></td>
+		</tr>
+		<tr>
+			<td>File Owner</td>
+			<td class='title'><?=fileOwner( $file->getFile() )?></td>
+		</tr>
+		<tr>
+			<td>File Permmision</td>
+			<td class='title'>
+				<?=$info->isReadable()?'r':''; ?>
+				<?=$info->isWritable()?'w':''; ?>
+				<?=$info->isExecutable()?'x':''; ?>
+			</td>
+		</tr>
+	</tbody>
+</table>

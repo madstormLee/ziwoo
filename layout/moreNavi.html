@@ -1,0 +1,13 @@
+<? if($total != ($nextPage-1) * 20){ ?>
+<span class="mMore1">
+	<a class='more' href="<?=$href?>?<?=MadParams::replace("rows=$rows&page=$nextPage") ?><?=$param?>">more
+	<? if ( ($nextPage-1) * 20 > $total ) : ?>
+	( <?=$total ?> / <?=$total?> )
+	<? else : ?>
+	( <?=($nextPage-1) * 20 ?> / <?=$total?> )
+	<? endif; ?>
+	</a>
+</span>
+<? } ?>
+<input type=hidden name=morePage id=morePage value="<?=$nextPage?>">
+

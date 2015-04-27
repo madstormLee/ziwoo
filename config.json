@@ -1,0 +1,16 @@
+{
+	"info": {
+		"title": "ziwoo",
+		"author": "Madstorm",
+		"year": "2014",
+		"project": "ziwoo"
+	},
+	"instances": {
+		"db": "MadDb::create('sqlite:data.db')",
+		"js": "MadJs::getInstance()",
+		"debug": "MadDebug::getInstance()",
+		"session": "MadSession::getInstance()",
+		"layout": "new MadView('layout/default.html')",
+		"contents": "new Contents"
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"user": {
+		"label":"user",
+		"component": "mad/user"
+	},
+	"persona": {
+		"label":"Persona",
+		"component": "mad/user/group"
+	}
+}

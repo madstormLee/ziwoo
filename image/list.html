@@ -1,0 +1,13 @@
+<h1>list</h1>
+
+<ul class='files'>
+	<? foreach( $index as $row ) : ?>
+	<li>
+		<img src='~/<?=$row->getFile()?>' style='max-width: 10rem' />
+		<a class='popup' href='./view?file=<?=$row->getFile()?>' data-resource='<?=$row?>'><?=$row->getBaseName()?></a>
+		<? if ( $row->isWritable() ): ?>
+		<a class='popup tiny button' href='~/mad/file/rename?file=<?=$row->getFile()?>'>Rename</a>
+		<? endif; ?>
+	</li>
+	<? endforeach; ?>
+</ul>

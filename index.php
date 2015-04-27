@@ -1,0 +1,2 @@
+<?
+include 'mad/index.php';

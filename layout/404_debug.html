@@ -1,0 +1,31 @@
+<h1>Location Not Founded :: debug mode</h1>
+
+<h2>requested : <?=$_SERVER['REQUEST_URI']?></h2>
+
+<p class='caution'>
+	You request <?=$_SERVER['REQUEST_URI']?>.
+	but 
+	<? if ( ! empty( $controllersDir ) ): ?>
+	<b>controller not exists.</b><br />
+	And now, Notfound controller initialized.<br />
+	Check your controller from below.<br />
+	<h3>Existing controllers</h3>
+	<ul>
+		<? foreach ( $controllersDir as $file ) : ?>
+		<? if ( is_dir( $file ) ) continue; ?>
+		<li><?=baseName( $file ); ?></li>
+		<? endforeach; ?>
+	</ul>
+	<? else: ?>
+	<b><?=$g->controllerName?> has not <?=$g->actionName?> action.</b><br />
+	check your actions from below<br />
+	<h3>Existing actions of <?=$g->controllerName?> controller</h3>
+
+	<ul>
+		<? foreach ( $controller->getActions() as $method ) : ?>
+		<li><?=$method ?></li>
+		<? endforeach; ?>
+	</ul>
+	<? endif; ?>
+</p>
+
