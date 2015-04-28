@@ -6,7 +6,7 @@ class ImageController extends MadController {
 	function listAction() {
 		$get = $this->params;
 		if( ! $get->dir ) {
-			$get->dir = 'file/image/data';
+			$get->dir = 'image/data';
 		}
 		$this->view->index = new MadDir( $get->dir, '*.{gif,png,jpg,JPG,GIF,PNG}' );
 	}

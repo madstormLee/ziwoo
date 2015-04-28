@@ -3,7 +3,12 @@
 <ul class='files'>
 	<? foreach( $index as $row ) : ?>
 	<li>
+	<? $thumbFile = $row->getDirName() . '/thumbnail/' . $row->getBasename(); ?>
+	<? if( is_file( $thumbFile ) ) : ?>
+		<img src='~/<?=$thumbFile?>' style='max-width: 10rem' />
+	<? else :  ?>
 		<img src='~/<?=$row->getFile()?>' style='max-width: 10rem' />
+	<? endif; ?>
 		<a class='popup' href='./view?file=<?=$row->getFile()?>' data-resource='<?=$row?>'><?=$row->getBaseName()?></a>
 		<? if ( $row->isWritable() ): ?>
 		<a class='popup tiny button' href='~/mad/file/rename?file=<?=$row->getFile()?>'>Rename</a>
