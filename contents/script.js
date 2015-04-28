@@ -59,7 +59,7 @@ var ContentsWrite = function() {
 		var el = $(ev.target);
 		var src = el.next('a').attr('data-resource');
 
-		$('#write a.image img').attr( 'src', el.attr('src') );
+		$('#write a.image img').attr( 'src', el.next('a').attr('data-src') );
 		$('#image').val( src );
 	};
 
@@ -79,9 +79,14 @@ var ContentsWrite = function() {
 	$('#write a.scale').click( this.onScale );
 	$('#write a.tie').click( this.onTie );
 	$('#write a.contents').click( this.onContents );
-	$('#images').click( this.onImage );
+	$('#left').click( this.onImage );
 };
 
 $(function() {
 	new ContentsWrite;
+
+	$('a[data-target]').click( function( ev ) {
+		$($(this).attr('data-target')).load( this.href );
+		return false;
+	});
 });

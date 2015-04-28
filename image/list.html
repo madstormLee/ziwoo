@@ -9,7 +9,11 @@
 	<? else :  ?>
 		<img src='~/<?=$row->getFile()?>' style='max-width: 10rem' />
 	<? endif; ?>
-		<a class='popup' href='./view?file=<?=$row->getFile()?>' data-resource='<?=$row?>'><?=$row->getBaseName()?></a>
+	<a class='popup' href='./view?file=<?=$row->getFile()?>'
+		data-src='~/<?=$row->getFile()?>'
+		data-resource='<?=$row?>'>
+		<?=$row->getBaseName()?>
+	</a>
 		<? if ( $row->isWritable() ): ?>
 		<a class='popup tiny button' href='~/mad/file/rename?file=<?=$row->getFile()?>'>Rename</a>
 		<? endif; ?>

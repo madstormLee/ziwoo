@@ -106,21 +106,25 @@ section.tile img.video {
 }
 
 
-/* right images */
-#images {
+/* images */
+#left h1 {
+	display: none;
 }
-#images ul {
+#left {
+}
+#left ul {
 	height: 50rem;
 	overflow: auto;
 	list-style: none;
 }
-#images ul li {
+#left ul li {
 	display: inline-block;
+	margin: 1px;
 }
-#images ul li img {
+#left ul li img {
 	cursor: pointer;
 }
-#images ul li a.popup {
+#left ul li a.popup {
 	display: none;
 }
 
