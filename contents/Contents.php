@@ -2,12 +2,9 @@
 class Contents extends MadModel {
 	protected $types = array();
 
-	function __construct( $id='' ) {
-		$this->parentId = 0;
-		$this->setSetting('contents/model.json');
-		parent::__construct( $id );
-		if ( empty($this->id) ) {
-			$this->setDefault();
+	function getSetting() {
+		if ( empty( $this->setting ) ) {
+			$this->setSetting('contents/model.json');
 		}
 	}
 	function setDefault() {

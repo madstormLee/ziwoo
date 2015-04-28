@@ -27,6 +27,20 @@ class ContentsController extends MadController {
 		$db->query( $query );
 		$this->view->index = $db->fetchAll( $this->model );
 	}
+	function treeAction() {
+		$db = $this->db;
+		$query = new MadQuery( get_class($this->model) );
+		$query->where("type='stack'");
+		$query->order("parentId");
+		$query->limit();
+		$db->query( $query );
+
+		$data = $db->fetchAll( $this->model );
+
+		$index = new MadTree( $data );
+
+		$this->view->index = $index;
+	}
 	function updateAction() {
 		if ( ! isset( $this->session->user ) ) throw new Exception('need login');
 
