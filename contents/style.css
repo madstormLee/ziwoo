@@ -107,24 +107,24 @@ section.tile img.video {
 
 
 /* images */
-#left h1 {
+#images h1 {
 	display: none;
 }
-#left {
+#images {
 }
-#left ul {
-	height: 50rem;
-	overflow: auto;
+#images ul {
 	list-style: none;
+	max-height: 700px;
+	overflow: auto;
 }
-#left ul li {
+#images ul li {
 	display: inline-block;
 	margin: 1px;
 }
-#left ul li img {
+#images ul li img {
 	cursor: pointer;
 }
-#left ul li a.popup {
+#images ul li a.popup {
 	display: none;
 }
 
