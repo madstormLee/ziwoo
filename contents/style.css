@@ -177,4 +177,50 @@ section.tree dl dd.subs {
 	margin-left: 1rem;
 }
 
-@import 'media.css';
+@media only screen and (max-width: 40.063em) {
+	section.tile div.tie.scale-2 {
+		height: 137px;
+	}
+
+	section.tile div {
+		height: 137px;
+	}
+	section.tile div.scale-2 {
+		height: 274px;
+	}
+	section.tile {
+		min-width: auto;
+	}
+	dl.article {
+		max-height: 15rem;
+		padding: 1rem;
+		margin: .5rem;
+		background: #f0f0f0;
+		overflow: auto;
+	}
+	dl.article dt {
+		font-size: 1rem;
+		color: #333333;
+	}
+	dl.article dd {
+	}
+	dl.article dd * {
+		font-size: .8rem;
+		color: #999999;
+	}
+	section.tile dl.info dt {
+		margin: 2px 0;
+	}
+
+	@media only screen and (orientation:landscape) {
+		section.tile div {
+			height: 227px;
+		}
+		section.tile div.scale-2 {
+			height: 454px;
+		}
+		section.tile dl.info dt {
+			margin: 10px 0;
+		}
+	}
+}
