@@ -2,13 +2,17 @@
 class Contents extends MadModel {
 	protected $types = array();
 
-	function getSetting() {
+	function getSetting( $type='' ) {
 		if ( empty( $this->setting ) ) {
 			$this->setSetting('contents/model.json');
 		}
+		if ( isset( $this->setting->$type ) ) {
+			return $this->setting->$type;
+		}
+		return $this->setting;
 	}
-	function setDefault() {
-		$this->data = $this->setting->dic('default')->getData();
+	function fetchDefault() {
+		$this->data = $this->getSetting()->dic('default')->getData();
 		return $this;
 	}
 	function getStack( $parentId=0 ) {

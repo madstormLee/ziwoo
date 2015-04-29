@@ -79,7 +79,7 @@ var ContentsWrite = function() {
 	$('#write a.scale').click( this.onScale );
 	$('#write a.tie').click( this.onTie );
 	$('#write a.contents').click( this.onContents );
-	$('#left').click( this.onImage );
+	$('#images').click( this.onImage );
 };
 
 $(function() {
