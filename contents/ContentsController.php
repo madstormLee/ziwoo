@@ -70,7 +70,10 @@ class ContentsController extends MadController {
 		$get = $this->params;
 		$model = $this->model;
 
-		$this->model->fetch( $get->id );
+		$model->fetch( $get->id );
+		if ( ! $model->id ) {
+			$model->fetchDefault();
+		}
 		if ( $get->parentId ) {
 			$model->parentId = $get->parentId;
 		}

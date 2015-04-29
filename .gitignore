@@ -7,3 +7,4 @@
 .sass-cache
 *.css.map
 files/server/php/files
+data.db
