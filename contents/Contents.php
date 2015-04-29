@@ -36,12 +36,6 @@ class Contents extends MadModel {
 	function getCategories() {
 		return $this->setting->category->options;
 	}
-	function save() {
-		if ( $this->id ) {
-			return $this->update();
-		}
-		return $this->insert();
-	}
 	function getDb() {
 		return MadConfig::getInstance()->db;
 	}
@@ -53,7 +47,6 @@ class Contents extends MadModel {
 		$query->insert( array_filter($this->data) );
 
 		$db = $this->getDb();
-		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		$statement = $db->prepare( $query );
 		$result = $statement->execute( $query->data() );
